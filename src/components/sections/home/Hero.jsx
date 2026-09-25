@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight, Cpu, Sparkles, LineChart, Shield, Zap } from 'lucide-react';
 
@@ -181,13 +182,13 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="pt-4 flex flex-col sm:flex-row gap-4 sm:items-center"
             >
-              <a
-                href="#presale"
+              <Link
+                to="/presale#presale-area"
                 className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-sm font-bold tracking-wider text-white bg-gradient-purple-btn border border-[#B84CFF]/50 shadow-[0_0_25px_rgba(139,44,255,0.45)] hover:shadow-[0_0_40px_rgba(184,76,255,0.7)] transition-all duration-300 active:scale-95"
               >
                 <span>BUY NOW</span>
                 <ArrowRight className="w-4 h-4 text-purple-100 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
 
               <a
                 href="#presale"

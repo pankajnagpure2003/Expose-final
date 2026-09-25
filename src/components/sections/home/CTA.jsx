@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Cpu, Coins, Lock } from 'lucide-react';
 
@@ -62,14 +63,14 @@ const CTA = () => {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <a
-                href="#presale"
+              <Link
+                to="/presale#presale-area"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl text-xs font-bold tracking-wider text-white bg-[#090719] border border-[#8B2CFF]/50 hover:border-[#B84CFF] shadow-lg transition-all"
               >
                 <Coins className="w-4 h-4 text-[#B84CFF]" />
                 <span>JOIN PRESALE</span>
                 <ArrowRight className="w-4 h-4 text-[#B84CFF]" />
-              </a>
+              </Link>
 
               <a
                 id="staking"

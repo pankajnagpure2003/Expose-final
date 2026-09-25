@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Send, ShieldAlert } from 'lucide-react';
 
 const Footer = () => {
@@ -97,7 +98,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-xs text-[#A8A5B8]">
               <li><a href="#tokenomics" className="hover:text-white transition-colors">Tokenomics</a></li>
-              <li><a href="#presale" className="hover:text-white transition-colors">Join Presale</a></li>
+              <li><Link to="/presale#presale-area" className="hover:text-white transition-colors">Join Presale</Link></li>
               <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
               <li>
                 <span className="text-[#A8A5B8]/60 inline-flex items-center gap-1">
