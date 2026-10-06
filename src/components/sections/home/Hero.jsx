@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-black pt-28 pb-20 text-white md:pt-36 md:pb-28"
+      className="relative flex min-h-screen items-center overflow-hidden bg-black px-0 py-24 text-white md:py-28"
     >
 
       {/* ================= BACKGROUND ================= */}
@@ -32,11 +32,11 @@ const Hero = () => {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[180px] bg-gradient-to-t from-black via-black/60 to-transparent" />
 
-      <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 gap-12 items-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] items-center px-4 sm:px-6 lg:px-8">
+        <div className="flex w-full items-center justify-center">
 
           {/* Left Hero Content */}
-          <div className="mx-auto flex w-full max-w-5xl -translate-y-9 flex-col items-center space-y-6 text-center">
+          <div className="mx-auto flex w-full max-w-5xl flex-col items-center space-y-6 text-center">
 
             {/* Tag Badge */}
             <motion.div
