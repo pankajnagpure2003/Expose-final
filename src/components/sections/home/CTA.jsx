@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+=======
+import React from 'react';
+>>>>>>> 5f5851c (Update About and CTA sections)
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Cpu, Coins, Lock, Copy, Check, ExternalLink } from 'lucide-react';
 import { NETWORK, TOKEN_ADDRESS } from '../../../web3/config.js';
@@ -138,14 +142,14 @@ const CTA = () => {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <Link
-                to="/presale#presale-area"
+              <a
+                href="#presale"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl text-xs font-bold tracking-wider text-white bg-[#090719] border border-[#8B2CFF]/50 hover:border-[#B84CFF] shadow-lg transition-all"
               >
                 <Coins className="w-4 h-4 text-[#B84CFF]" />
                 <span>JOIN PRESALE</span>
                 <ArrowRight className="w-4 h-4 text-[#B84CFF]" />
-              </Link>
+              </a>
 
               <a
                 id="staking"
@@ -180,3 +184,24 @@ const CTA = () => {
 };
 
 export default CTA;
+
+
+
+{/* Background About Video */}
+              <div className="absolute inset-0 z-0 opacity-75 group-hover:opacity-90 transition-opacity duration-300">
+
+                <video
+                  src={aboutVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover filter brightness-125 contrast-110 saturate-125"
+                />
+
+                {/* Soft Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05030D]/70 via-[#05030D]/25 to-transparent" />
+
+              </div>
+              import aboutVideo from '../../../assets/about.mp4';
