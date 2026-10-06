@@ -33,10 +33,10 @@ const Hero = () => {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[180px] bg-gradient-to-t from-black via-black/60 to-transparent" />
 
       <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 gap-12 items-center">
 
           {/* Left Hero Content */}
-          <div className="lg:col-span-7 space-y-6 text-left -translate-y-9">
+          <div className="mx-auto flex w-full max-w-5xl -translate-y-9 flex-col items-center space-y-6 text-center">
 
             {/* Tag Badge */}
             <motion.div
@@ -71,7 +71,7 @@ const Hero = () => {
   initial={{ opacity: 0, y: 25 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6, delay: 0.3 }}
-  className="text-sm sm:text-base text-[#A8A5B8] max-w-2xl font-normal leading-relaxed text-left"
+  className="mx-auto max-w-2xl text-sm font-normal leading-relaxed text-[#A8A5B8] sm:text-base"
 >
   <strong className="text-white font-semibold">EXPOSE</strong> is an AI-powered
   trading intelligence ecosystem built to bring market analysis, structured
@@ -85,7 +85,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="pt-2 flex flex-wrap gap-2 sm:gap-3 text-xs font-bold tracking-wider text-white"
+              className="flex flex-wrap justify-center gap-2 pt-2 text-xs font-bold tracking-wider text-white sm:gap-3"
             >
               <div className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#0D0A1F]/80 border border-[#8B2CFF]/30 shadow-inner">
                 <Cpu className="w-3.5 h-3.5 text-[#B84CFF]" />
@@ -110,7 +110,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="pt-4 flex flex-col sm:flex-row gap-4 sm:items-center"
+              className="flex w-full flex-col justify-center gap-4 pt-4 sm:flex-row sm:items-center"
             >
               <Link
                 to="/presale#presale-area"
