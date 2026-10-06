@@ -52,7 +52,7 @@ const Hero = () => {
   }}
 >
   <video
-    className="h-full w-full object-cover brightness-120 scale-[1.03] -translate-y-4"
+    className="h-full w-full object-cover brightness-100 scale-[1.03] -translate-y-4"
     autoPlay
     muted
     loop
@@ -63,14 +63,13 @@ const Hero = () => {
   </video>
 </motion.div>
 
-        {/* Bottom readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05030D] via-[#05030D]/70 to-[#05030D]/20" />
+       
 
         {/* Left readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#05030D]/90 via-[#05030D]/30 to-transparent" />
 
         {/* Subtle white light */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/[0.035]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/[55]" />
 
         {/* Mouse-follow glow */}
         <motion.div
@@ -191,7 +190,7 @@ const Hero = () => {
               </Link>
 
               <a
-                href="#presale"
+                href="https://expose-1.gitbook.io/expose-docs"
                 className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-sm font-bold tracking-wider text-white glass-panel border border-[#8B2CFF]/40 hover:border-[#B84CFF]/70 hover:bg-[#8B2CFF]/15 shadow-lg transition-all duration-300 active:scale-95"
               >
                 <span>WHITEPAPER</span>

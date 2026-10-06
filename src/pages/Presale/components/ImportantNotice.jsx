@@ -1,6 +1,9 @@
 import { ArrowRight, AlertCircle, Sparkles } from 'lucide-react'
+import usePresale from '../../../web3/usePresale.js'
 
 export default function ImportantNotice() {
+  const { priceLabel } = usePresale()
+
   return (
     <section className="relative overflow-hidden bg-black py-16 md:py-24 text-white">
 
@@ -89,7 +92,7 @@ export default function ImportantNotice() {
                 The{' '}
 
                 <span className="font-semibold text-white">
-                  $0.05
+                  ${priceLabel}
                 </span>
 
                 {' '}price is a preliminary planning assumption. Final presale terms,

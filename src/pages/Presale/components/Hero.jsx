@@ -1,6 +1,9 @@
 import { ArrowRight, ChevronDown } from 'lucide-react'
+import usePresale from '../../../web3/usePresale.js'
 
 export default function Hero() {
+  const { priceLabel } = usePresale()
+
   return (
     <section className="relative min-h-[720px] md:min-h-[760px] flex items-center overflow-hidden bg-[#08080a] text-white">
 
@@ -262,7 +265,7 @@ export default function Hero() {
                     text-white
                   "
                 >
-                  $0.05
+                  ${priceLabel}
                 </strong>
 
                 <span

@@ -122,7 +122,7 @@ const Tokenomics = () => {
                 {/* Planning Price */}
                 <div className="p-4 rounded-2xl bg-[#05030D] border border-purple-500/20 space-y-1">
                   <div className="text-[11px] font-bold text-[#A8A5B8] uppercase tracking-wider">PLANNING PRICE</div>
-                  <div className="text-xl font-black font-mono text-emerald-400">$0.01</div>
+                  <div className="text-xl font-black font-mono text-emerald-400">$1</div>
                 </div>
 
                 {/* Proposed Network */}

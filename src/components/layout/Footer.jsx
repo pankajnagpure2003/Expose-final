@@ -101,9 +101,11 @@ const Footer = () => {
               <li><Link to="/presale#presale-area" className="hover:text-white transition-colors">Join Presale</Link></li>
               <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
               <li>
-                <span className="text-[#A8A5B8]/60 inline-flex items-center gap-1">
-                  Whitepaper <span className="text-[10px] font-mono font-normal text-purple-300">(soon)</span>
+              <a className="hover:text-white transition-colors" href="https://expose-1.gitbook.io/expose-docs">
+                <span >
+                  Whitepaper 
                 </span>
+                </a>
               </li>
             </ul>
           </div>

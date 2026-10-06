@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Wallet, ChevronRight } from 'lucide-react'
+import useWallet from '../../web3/useWallet.js'
+import { shortAddress } from '../../web3/format.js'
 
 const NAV_ITEMS = [
   { label: 'HOME', type: 'route', to: '/' },
@@ -16,11 +18,18 @@ export default function Navbar({ variant = 'transparent', activePage = 'home' })
   const [open, setOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const location = useLocation()
-  const navigate = useNavigate()
+  const { walletReady, account, isCorrectChain, connect, switchNetwork, openAccount } = useWallet()
 
   const isHome = location.pathname === '/'
-  const isPresale = location.pathname === '/presale'
-  const isStaking = location.pathname === '/staking'
+
+  const walletLabel = !account ? 'Connect Wallet' : !isCorrectChain ? 'Switch Network' : shortAddress(account)
+
+  const handleWallet = () => {
+    if (!walletReady) return
+    if (!account) connect()
+    else if (!isCorrectChain) switchNetwork().catch(() => {})
+    else openAccount()
+  }
 
   useEffect(() => {
     if (!isHome) {
@@ -117,27 +126,20 @@ export default function Navbar({ variant = 'transparent', activePage = 'home' })
           <div className="hidden sm:flex items-center">
             <button
               type="button"
-              onClick={() => {
-                if (isPresale) document.getElementById('presale-area')?.scrollIntoView({ behavior: 'smooth' })
-                else if (isStaking) document.getElementById('top')?.scrollIntoView({ behavior: 'smooth' })
-                else navigate('/presale#presale-area')
-              }}
+              onClick={handleWallet}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider text-white bg-gradient-purple-btn border border-[#B84CFF]/40 shadow-[0_0_20px_rgba(139,44,255,.3)] hover:shadow-[0_0_30px_rgba(184,76,255,.5)] transition-all active:scale-95"
             >
               <Wallet className="w-4 h-4 text-purple-200" />
-              <span>Connect Wallet</span>
+              <span>{walletLabel}</span>
             </button>
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
             <button
               type="button"
-              onClick={() => {
-                if (isPresale) document.getElementById('presale-area')?.scrollIntoView({ behavior: 'smooth' })
-                else navigate('/presale#presale-area')
-              }}
+              onClick={handleWallet}
               className="sm:hidden p-2 rounded-lg bg-[#8B2CFF]/20 border border-[#8B2CFF]/40 text-purple-300"
-              aria-label="Connect Wallet"
+              aria-label={walletLabel}
             >
               <Wallet className="w-4 h-4" />
             </button>
@@ -183,13 +185,12 @@ export default function Navbar({ variant = 'transparent', activePage = 'home' })
               type="button"
               onClick={() => {
                 close()
-                if (isPresale) document.getElementById('presale-area')?.scrollIntoView({ behavior: 'smooth' })
-                else navigate('/presale#presale-area')
+                handleWallet()
               }}
               className="mt-2 w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-xs font-bold tracking-wider text-white bg-gradient-purple-btn"
             >
               <Wallet className="w-4 h-4" />
-              Connect Wallet
+              {walletLabel}
             </button>
           </div>
         </div>

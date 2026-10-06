@@ -4,16 +4,19 @@ import PresaleSection from './components/PresaleSection.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
 
 import ImportantNotice from './components/ImportantNotice.jsx'
+import PresaleProvider from '../../web3/PresaleProvider.jsx'
 
 export default function PresalePage() {
   return (
-    <main className="bg-paper text-ink">
-<Hero />
-      <PresaleSection />
-      <HowItWorks />
+    <PresaleProvider>
+      <main className="bg-paper text-ink">
+        <Hero />
+        <PresaleSection />
+        <HowItWorks />
 
-      <ImportantNotice />
-      <Footer />
-    </main>
+        <ImportantNotice />
+        <Footer />
+      </main>
+    </PresaleProvider>
   )
 }
