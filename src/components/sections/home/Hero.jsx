@@ -1,105 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, Cpu, Sparkles, LineChart, Shield, Zap } from 'lucide-react';
-
-const heroVideo = "/assets/hero video.mp4";
-
-const PARTICLES = Array.from({ length: 25 }, (_, i) => ({
-  id: i,
-  left: `${(i * 17) % 100}%`,
-  top: `${(i * 23) % 100}%`,
-  delay: `${(i % 5) * 0.5}s`,
-  duration: `${3 + (i % 4)}s`,
-}));
+import DotGrid from '../../../pages/Staking/components/DotGrid.jsx';
 
 const Hero = () => {
-  const [mouseInside, setMouseInside] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 25, stiffness: 150 };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig);
-
-  const videoX = useTransform(springX, [-1, 1], [-15, 15]);
-  const videoY = useTransform(springY, [-1, 1], [-15, 15]);
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-28 pb-20 md:pt-36 md:pb-28 flex items-center overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setMouseInside(true)}
-      onMouseLeave={() => setMouseInside(false)}
+      className="relative min-h-screen overflow-hidden bg-black pt-28 pb-20 text-white md:pt-36 md:pb-28"
     >
 
       {/* ================= BACKGROUND ================= */}
-     <div className="absolute inset-0 z-0 overflow-hidden">
- <motion.div
-  className="absolute inset-[-20px] translate-x-[50px] sm:translate-x-0"
-  style={{
-    x: videoX,
-    y: videoY,
-  }}
->
-  <video
-    className="h-full w-full object-cover brightness-100 scale-[1.03] -translate-y-4"
-    autoPlay
-    muted
-    loop
-    playsInline
-    poster="/assets/hero-bg.jpg"
-  >
-    <source src={heroVideo} type="video/mp4" />
-  </video>
-</motion.div>
-
-       
-
-        {/* Left readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05030D]/90 via-[#05030D]/30 to-transparent" />
-
-        {/* Subtle white light */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/[55]" />
-
-        {/* Mouse-follow glow */}
-        <motion.div
-          className="pointer-events-none absolute h-[450px] w-[450px] rounded-full bg-violet/10 blur-[100px]"
-          style={{
-            left: '50%',
-            top: '50%',
-            x: useTransform(springX, [-1, 1], [-250, 250]),
-            y: useTransform(springY, [-1, 1], [-200, 200]),
-            opacity: mouseInside ? 1 : 0,
-          }}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <DotGrid
+          dotSize={3}
+          gap={32}
+          baseColor="#241a35"
+          activeColor="#a855f7"
+          proximity={180}
+          speedTrigger={100}
+          shockRadius={250}
+          shockStrength={5}
+          maxSpeed={5000}
+          resistance={750}
+          returnDuration={1.5}
         />
-
-        {/* Floating particles */}
-        {PARTICLES.map((particle) => (
-          <span
-            key={particle.id}
-            className="absolute h-1 w-1 rounded-full bg-white/30 animate-pulse"
-            style={{
-              left: particle.left,
-              top: particle.top,
-              animationDelay: particle.delay,
-              animationDuration: particle.duration,
-            }}
-          />
-        ))}
-
-        {/* Grain */}
-        <div className="absolute inset-0 grain" />
       </div>
+
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_40%,rgba(139,92,246,0.10),transparent_45%)]" />
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[180px] bg-gradient-to-t from-black via-black/60 to-transparent" />
 
       <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
