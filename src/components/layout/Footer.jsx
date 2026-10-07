@@ -85,8 +85,8 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-xs text-[#A8A5B8]">
               <li><a href="#ai-platform" className="hover:text-white transition-colors">AI Platform</a></li>
-              <li><a href="#ai-platform" className="hover:text-white transition-colors">Strategy & Automation</a></li>
-              <li><a href="#ecosystem" className="hover:text-white transition-colors">Platform Access</a></li>
+              {/* <li><a href="#ai-platform" className="hover:text-white transition-colors">Strategy & Automation</a></li>
+              <li><a href="#ecosystem" className="hover:text-white transition-colors">Platform Access</a></li> */}
               <li><a href="#staking" className="hover:text-white transition-colors">Staking</a></li>
             </ul>
           </div>
@@ -98,7 +98,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-xs text-[#A8A5B8]">
               <li><a href="#tokenomics" className="hover:text-white transition-colors">Tokenomics</a></li>
-              <li><Link to="/presale#presale-area" className="hover:text-white transition-colors">Join Presale</Link></li>
+              <li><Link to="/presale#presale" className="hover:text-white transition-colors">Join Presale</Link></li>
               <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
               <li>
               <a className="hover:text-white transition-colors" href="https://expose-1.gitbook.io/expose-docs">
@@ -117,9 +117,9 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-xs text-[#A8A5B8]">
               <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+              {/* <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Risk Disclosure</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Risk Disclosure</a></li> */}
             </ul>
           </div>
 

@@ -156,12 +156,7 @@ const CTA = () => {
               </a>
 
               <a
-                id="staking"
-                href="#staking"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("EXPOSE Staking platform launching alongside mainnet deployment.");
-                }}
+               
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl text-xs font-bold tracking-wider text-white glass-panel border border-[#8B2CFF]/40 hover:border-[#B84CFF]/70 shadow-lg transition-all"
               >
                 <Lock className="w-4 h-4 text-purple-300" />
