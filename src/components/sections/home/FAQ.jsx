@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle, ArrowRight, Sparkles } from 'lucide-react';
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(0); // First item open by default
+  const [openIndex, setOpenIndex] = useState(null);
 
   const faqs = [
     {
@@ -33,7 +33,7 @@ const FAQ = () => {
   ];
 
   const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex((currentOpenIndex) => currentOpenIndex === index ? null : index);
   };
 
   return (
@@ -74,8 +74,8 @@ const FAQ = () => {
           </div>
         </motion.div>
 
-        {/* 2-Column Accordion Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Single-Column Accordion */}
+        <div className="mx-auto grid max-w-4xl grid-cols-1 items-start gap-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
@@ -93,6 +93,7 @@ const FAQ = () => {
               >
                 <button
                   onClick={() => toggleAccordion(idx)}
+                  aria-expanded={isOpen}
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                 >
                   <span className="text-base sm:text-lg font-bold text-white pr-4 font-['Outfit']">

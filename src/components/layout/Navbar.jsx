@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { label: 'ABOUT US', type: 'section', hash: '#about' },
   { label: 'AI PLATFORM', type: 'section', hash: '#ai-platform' },
   { label: 'ECOSYSTEM', type: 'section', hash: '#ecosystem' },
+  { label: 'TOKENOMICS', type: 'section', hash: '#tokenomics' },
   { label: 'FAQ', type: 'section', hash: '#faq' },
   { label: 'PRESALE', type: 'route', to: '/presale', key: 'presale' },
   { label: 'STAKING', type: 'route', to: '/staking', key: 'staking' },
@@ -38,14 +39,24 @@ export default function Navbar({ variant = 'transparent', activePage = 'home' })
     }
 
     const updateActive = () => {
-      const sections = ['home', 'about', 'ai-platform', 'ecosystem', 'faq']
-      const position = window.scrollY + 180
+      const sectionIds = [
+        'home',
+        ...NAV_ITEMS
+          .filter((item) => item.type === 'section')
+          .map((item) => item.hash.slice(1)),
+      ]
+      const position = window.scrollY + 120
+      const sections = sectionIds
+        .map((id) => {
+          const el = document.getElementById(id)
+          return el ? { id, top: el.getBoundingClientRect().top + window.scrollY } : null
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.top - b.top)
       let current = 'home'
 
-      for (const id of sections) {
-        const el = document.getElementById(id)
-        if (!el) continue
-        if (position >= el.offsetTop) current = id
+      for (const section of sections) {
+        if (position >= section.top) current = section.id
       }
 
       setActiveSection(current)
@@ -53,8 +64,12 @@ export default function Navbar({ variant = 'transparent', activePage = 'home' })
 
     updateActive()
     window.addEventListener('scroll', updateActive, { passive: true })
-    return () => window.removeEventListener('scroll', updateActive)
-  }, [isHome, activePage, location.pathname])
+    window.addEventListener('resize', updateActive)
+    return () => {
+      window.removeEventListener('scroll', updateActive)
+      window.removeEventListener('resize', updateActive)
+    }
+  }, [isHome, activePage, location.pathname, location.hash])
 
   const close = () => setOpen(false)
 
